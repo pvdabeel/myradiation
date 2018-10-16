@@ -2,7 +2,10 @@
 # MyRadiation - OS X Menubar plugin
 
 Displays uRadmonitor radiation sensor data in the OS X menubar. 
+
 Shows average CPM and average μSv/hour for the past 24 hours.
+
+![Imgur](https://i.imgur.com/LNq54Et.png)
 
 ## Licence: GPL v3
 
