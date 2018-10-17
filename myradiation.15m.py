@@ -115,7 +115,19 @@ def main(argv):
    
     # loop through images, list all instances and print menu for creating new vm from image
     for sensor in sensors: 
-       print ('%s : \t %s μSv/h | color=%s' % (datetime.datetime.fromtimestamp(int(sensor['timelast'])).strftime('%Y-%m-%d %H:%M:%S'),color_radiation(float(sensor['avg_cpm'])*float(sensor['factor'])), color))
+        print ('%s μSv/h | color=%s' % (color_radiation(float(sensor['avg_cpm'])*float(sensor['factor'])), color))
+        
+        print ('--Updated:  \t%s| color=%s' % (datetime.datetime.fromtimestamp(int(sensor['timelast'])).strftime('%Y-%m-%d %H:%M:%S'), color))
+        print ('-----')
+        print ('--City:   \t\t%s| color=%s' % (sensor['city'],      info_color))
+        print ('--Longitude:\t%s| color=%s' % (sensor['longitude'], info_color))
+        print ('--Latitude: \t%s| color=%s' % (sensor['latitude'],  info_color))
+        print ('-----')
+        print ('--Sensor:   \t%s| color=%s' % (sensor['detector'],  info_color))
+        print ('--Hardware: \t%s| color=%s' % (sensor['versionhw'], info_color))
+        print ('--Software: \t%s| color=%s' % (sensor['versionsw'], info_color))
+
+
 
 def run_script(script):
     return subprocess.Popen([script], stdout=subprocess.PIPE, shell=True).communicate()[0].strip()
